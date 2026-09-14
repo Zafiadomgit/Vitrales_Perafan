@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vitrales Perafán — La Ingeniería convertida en Arte</title>
+<meta name="description" content="Taller de vitrales en Caracas desde 1976. Fabricación, restauración, peritaje, montaje y desmontaje de vitrales en todas sus técnicas, a nivel nacional e internacional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="#inicio" class="brand">
+    <span class="brand-name">VITRALES</span>
+    <span class="brand-sub">PERAFÁN</span>
+  </a>
+  <nav class="site-nav">
+    <a href="#taller">Taller</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto" class="nav-cta">Cotizar</a>
+  </nav>
+</header>
+
+<section id="inicio" class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide" style="background-image:url('assets/circulos-frontal.jpeg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/banco-venezuela.jpeg')"></div>
+    <div class="hero-slide hero-slide-religioso" style="background-image:url('assets/religioso.jpeg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/ondas.jpeg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/taller.jpeg')"></div>
+  </div>
+  <div class="hero-scrim"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="eyebrow">Fundado en 1976 · Caracas, Venezuela</p>
+      <h1>La Ingeniería<br><em>convertida en Arte</em></h1>
+      <p class="lead">Más de 45 años fabricando, restaurando y manteniendo vitrales en todas sus técnicas, a nivel nacional e internacional.</p>
+      <div class="hero-cta">
+        <a href="#contacto" class="btn btn-primary">Solicita tu cotización</a>
+        <a href="#galeria" class="btn btn-ghost">Ver galería</a>
+      </div>
+    </div>
+
+    <div class="hero-controls">
+      <div class="slide-info">
+        <p class="slide-title" id="slideTitle"></p>
+        <p class="slide-meta" id="slideMeta"></p>
+      </div>
+      <div class="controls-row">
+        <div class="arrows">
+          <button type="button" class="arrow" id="prevSlide" aria-label="Anterior">←</button>
+          <button type="button" class="arrow" id="nextSlide" aria-label="Siguiente">→</button>
+        </div>
+        <span class="counter" id="slideCounter"></span>
+        <div class="dots" id="slideDots"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat"><p class="stat-num">45+</p><p class="stat-label">Años de trayectoria</p></div>
+  <div class="stat"><p class="stat-num">1976</p><p class="stat-label">Año de fundación</p></div>
+  <div class="stat"><p class="stat-num">2ª</p><p class="stat-label">Generación al frente</p></div>
+  <div class="stat"><p class="stat-num">Nacional</p><p class="stat-label">Cobertura e instalación</p></div>
+</section>
+
+<section id="taller" class="taller">
+  <div class="taller-grid">
+    <div class="taller-text">
+      <p class="eyebrow">El taller</p>
+      <h2>Tres generaciones alrededor del vidrio y la luz</h2>
+      <div class="taller-copy">
+        <p>Vitrales PERAFÁN fue fundado en 1976 por Alirio Hernando Perafán (+), quien se formó en la Casa Velazco (Taller de Vitrales en Cali – Colombia), iniciando un pequeño taller artesanal dentro de su propia vivienda, independizándolo 2 años después.</p>
+        <p>Desde sus inicios Herney Perafán Ibáñez (hijo menor, ingeniero mecánico), estuvo al lado de su Padre (+) inicialmente en la parte de Diseños y Dibujos, posteriormente fue aprendiendo todas las técnicas de la elaboración de Vitrales, quien actualmente está a cargo del Taller.</p>
+        <p>El Taller de Vitrales PERAFÁN tiene una experiencia y trayectoria de más de 45 años, fabricando Vitrales y todo lo concerniente a este Arte, a nivel nacional.</p>
+        <p>Actualmente cuenta con su propio Diseñador Gráfico (nieta del fundador), desplazando los bocetos realizados en acuarelas y creyones.</p>
+      </div>
+    </div>
+    <div class="taller-media">
+      <div class="media-main" style="background-image:url('assets/taller.jpeg')"></div>
+      <div class="media-row">
+        <div class="media-small" style="background-image:url('assets/mezzanina.jpeg')"></div>
+        <div class="media-small" style="background-image:url('assets/lobby.jpeg')"></div>
+      </div>
+      <p class="caption">Montaje en taller · Proyectos instalados</p>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" class="servicios">
+  <div class="section-inner">
+    <div class="servicios-head">
+      <div>
+        <p class="eyebrow">Servicios</p>
+        <h2>Todo el ciclo de vida del vitral</h2>
+      </div>
+      <p class="servicios-lead">Desarrollo de proyectos, fabricación, mantenimiento, valuación, evaluación, desmontaje, reparación y restauración de vitrales en todas sus técnicas o tipos.</p>
+    </div>
+    <div class="servicios-grid">
+      <div class="servicio-card"><p class="servicio-num">01</p><h3>Diseño y fabricación</h3><p>Cada proyecto se realiza acorde a las expectativas o especificaciones entregadas. Presentamos la propuesta gráfica (prediseño) para visualizar colores, imagen, distribución y la conjugación con las estructuras adyacentes.</p></div>
+      <div class="servicio-card"><p class="servicio-num">02</p><h3>Restauración</h3><p>Llevamos los vitrales a su estado original, conservando tonalidades, trazos, texturas y sobre todo la calidad de los mismos, respetando las autorías de cada obra.</p></div>
+      <div class="servicio-card"><p class="servicio-num">03</p><h3>Peritaje y patología</h3><p>Trabajos de peritaje y patología de vitrales, valuación y evaluación técnica del estado de cada pieza.</p></div>
+      <div class="servicio-card"><p class="servicio-num">04</p><h3>Montaje y desmontaje</h3><p>Instalación de vitrales importados, desmontajes y embalaje de vitrales existentes para su reinstalación.</p></div>
+      <div class="servicio-card"><p class="servicio-num">05</p><h3>Piezas artísticas en vidrio</h3><p>Piezas artísticas en vidrio, lámparas, parabanes y todo lo relacionado con vidrio decorativo.</p></div>
+      <div class="servicio-card"><p class="servicio-num">06</p><h3>Vidrio de seguridad</h3><p>Vidrios laminados y templados en sus diferentes usos y ambientes, además de asesoría en cualquier tipo de consulta relacionada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="proceso" class="proceso">
+  <div class="section-inner">
+    <p class="eyebrow">Proceso</p>
+    <h2>De la visita al sitio a la pieza instalada</h2>
+    <div class="proceso-grid">
+      <div class="proceso-step"><p class="step-num">PASO 01</p><h3>Visita y evaluación</h3><p>Nos trasladamos al sitio, tomamos dimensiones del área y evaluamos todas las condiciones de ubicación.</p></div>
+      <div class="proceso-step"><p class="step-num">PASO 02</p><h3>Prediseño y propuesta</h3><p>Con una idea podemos cotizar desarrollando un prediseño: proyección gráfica con colores, distribución e imagen.</p></div>
+      <div class="proceso-step"><p class="step-num">PASO 03</p><h3>Fabricación en taller</h3><p>Corte, armado y emplomado pieza por pieza, en la técnica que corresponda al proyecto.</p></div>
+      <div class="proceso-step"><p class="step-num">PASO 04</p><h3>Instalación y mantenimiento</h3><p>Montaje en obra a nivel nacional, con servicio posterior de mantenimiento y reparación.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="galeria">
+  <div class="section-inner">
+    <div class="galeria-head">
+      <div>
+        <p class="eyebrow">Galería</p>
+        <h2>Proyectos</h2>
+      </div>
+      <div class="filters" id="galeriaFilters"></div>
+    </div>
+    <div class="galeria-grid" id="galeriaGrid"></div>
+    <p class="galeria-note">Faltan categorías por llenar: lámparas y parabanes. Envíanos esas fotos y las sumamos a la galería.</p>
+  </div>
+</section>
+
+<section class="testimonios">
+  <div class="section-inner">
+    <p class="eyebrow">Testimonios</p>
+    <h2>Lo que dicen los clientes</h2>
+    <div class="testi-grid">
+      <div class="testi-card"><p class="testi-placeholder">testimonio 1 — texto + nombre del cliente y ciudad</p><p class="testi-pending">Pendiente</p></div>
+      <div class="testi-card"><p class="testi-placeholder">testimonio 2 — texto + nombre del cliente y ciudad</p><p class="testi-pending">Pendiente</p></div>
+      <div class="testi-card"><p class="testi-placeholder">testimonio 3 — o enlace a reseñas de Google</p><p class="testi-pending">Pendiente</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="section-inner section-inner-narrow">
+    <p class="eyebrow">Preguntas frecuentes</p>
+    <h2>Antes de cotizar</h2>
+    <div class="faq-list" id="faqList"></div>
+    <p class="faq-price-note">El precio de los vitrales varía según el tamaño (se cotiza por m² a partir de 3 m²), la complejidad o número de piezas, y los colores presentes, destacando los rojos, amarillos y naranjas, con un mayor precio.</p>
+  </div>
+</section>
+
+<section id="contacto" class="contacto">
+  <div class="contacto-grid">
+    <div class="contacto-info">
+      <p class="eyebrow">Contacto</p>
+      <h2>Cuéntanos del espacio y te preparamos una propuesta</h2>
+      <p class="lead">Los vitrales tienen cabida en residencias, centros religiosos, instituciones públicas o privadas, hoteles, centros comerciales y centros culturales. Atendemos a nivel nacional e internacional.</p>
+      <div class="info-list">
+        <div class="info-item">
+          <p class="info-label">Teléfono / WhatsApp</p>
+          <a href="https://wa.me/584141367355?text=Bienvenidos%20a%20Vitrales%20Peraf%C3%A1n.%20%C2%BFEn%20qu%C3%A9%20podemos%20ayudarte%20hoy%3F" class="info-value">+58 414 136 7355</a>
+        </div>
+        <div class="info-item">
+          <p class="info-label">Correo</p>
+          <a href="mailto:vitralesperafan@yahoo.com" class="info-value">vitralesperafan@yahoo.com</a><br>
+          <a href="mailto:herneypi@gmail.com" class="info-value">herneypi@gmail.com</a>
+        </div>
+        <div class="info-item">
+          <p class="info-label">Taller</p>
+          <p class="info-text">Av. Andrés Bello, Edificio Olimpo, semisótano, sector Santa Rosa, Parroquia El Recreo</p>
+          <a href="https://maps.app.goo.gl/H5ZTjnJb3pmvhiFP6" class="info-link">Ver en Google Maps →</a>
+        </div>
+        <div class="info-item">
+          <p class="info-label">Horario</p>
+          <p class="info-text">Lunes a viernes: 7:30 am – 5:00 pm<br>Sábados: 7:30 am – 1:00 pm</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="contacto-form" id="cotizarForm">
+      <p class="form-title">Solicita tu cotización</p>
+      <label>Nombre
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+      </label>
+      <label>Correo o WhatsApp
+        <input type="text" name="contacto" placeholder="Para responderte" required>
+      </label>
+      <label>Tipo de proyecto
+        <select name="tipo">
+          <option>Vitral nuevo</option>
+          <option>Restauración</option>
+          <option>Peritaje / evaluación</option>
+          <option>Desmontaje o reinstalación</option>
+          <option>Pieza artística o lámpara</option>
+          <option>Vidrio de seguridad</option>
+        </select>
+      </label>
+      <label>Ubicación y dimensiones aproximadas
+        <input type="text" name="ubicacion" placeholder="Ciudad · alto × ancho">
+      </label>
+      <label>Cuéntanos la idea
+        <textarea name="idea" rows="4" placeholder="Estilo, colores, uso del espacio"></textarea>
+      </label>
+      <button type="submit" class="btn btn-primary btn-submit">Enviar solicitud</button>
+      <p class="form-note">Los mensajes llegan a vitralesperafan@yahoo.com. También puedes escribirnos directo por WhatsApp.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <p class="footer-brand">VITRALES PERAFÁN</p>
+      <p class="footer-tagline">La Ingeniería convertida en Arte</p>
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/vitralesperafan" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+    </div>
+    <p class="footer-copy">© 1976–2026 Vitrales Perafán · Caracas, Venezuela</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/584141367355?text=Bienvenidos%20a%20Vitrales%20Peraf%C3%A1n.%20%C2%BFEn%20qu%C3%A9%20podemos%20ayudarte%20hoy%3F" class="whatsapp-float" target="_blank" rel="noopener">WhatsApp</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>
