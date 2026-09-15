@@ -1,6 +1,14 @@
 (() => {
   'use strict';
 
+  /* ---------- Header scroll state ---------- */
+  const header = document.querySelector('.site-header');
+  function updateHeaderScrolled() {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  }
+  window.addEventListener('scroll', updateHeaderScrolled, { passive: true });
+  updateHeaderScrolled();
+
   /* ---------- Hero carousel ---------- */
   const slides = [
     { title: 'Vitral decorativo, hall de acceso', meta: 'Emplomado · Proyecto corporativo' },

@@ -76,6 +76,12 @@ section[id] { scroll-margin-top: 90px; }
   gap: 24px;
   padding: 18px clamp(16px, 4vw, 56px);
   background: linear-gradient(to bottom, rgba(10, 9, 8, .82), rgba(10, 9, 8, 0));
+  transition: background .25s ease, backdrop-filter .25s ease, box-shadow .25s ease;
+}
+.site-header.scrolled {
+  background: rgba(10, 9, 8, .92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(201, 154, 78, .15);
 }
 .brand { display: flex; flex-direction: column; gap: 2px; color: var(--ink); }
 .brand-name { font-family: var(--serif); font-size: 22px; letter-spacing: .14em; line-height: 1; }
