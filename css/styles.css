@@ -216,6 +216,20 @@ section[id] { scroll-margin-top: 90px; }
 .proceso-step h3 { font-weight: 400; font-size: 22px; margin: 0 0 10px; }
 .proceso-step p { margin: 0; font-size: 15px; line-height: 1.7; color: rgba(74,51,35,.72); }
 
+.proceso-real { margin-top: clamp(48px, 7vh, 84px); padding-top: clamp(40px, 6vh, 64px); border-top: 1px solid var(--hairline); }
+.proceso-real-head { margin-bottom: clamp(24px, 3vh, 36px); }
+.proceso-real-head h3 { font-weight: 300; font-size: clamp(24px, 2.8vw, 34px); margin: 0; }
+.proceso-real-grid { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: clamp(24px, 3vw, 44px); align-items: start; }
+.proceso-real-video video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block; background: #000; }
+.proceso-real-photos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.proceso-real-photos-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.proceso-real .caption { margin-top: 12px; }
+@media (max-width: 720px) {
+  .proceso-real-grid { grid-template-columns: 1fr; }
+  .proceso-real-video video { max-width: 260px; margin: 0 auto; }
+  .proceso-real-photos-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 /* Galeria */
 .galeria { padding: clamp(64px, 10vh, 120px) clamp(16px, 4vw, 56px); background: var(--bg-alt); border-top: 1px solid var(--hairline); }
 .galeria-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 32px; }
