@@ -238,18 +238,6 @@ section[id] { scroll-margin-top: 90px; }
 .gallery-cat { margin: 3px 0 0 !important; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-lighter); }
 .galeria-note { margin: 26px 0 0; font-family: ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.7; color: rgba(74,51,35,.5); }
 
-/* Testimonios */
-.testimonios { padding: clamp(64px, 10vh, 120px) clamp(16px, 4vw, 56px); }
-.testimonios h2 { font-size: clamp(30px, 3.6vw, 52px); line-height: 1.12; margin-bottom: clamp(32px, 4vh, 52px); }
-.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
-.testi-card {
-  border: 1px dashed rgba(74,51,35,.28); padding: clamp(26px, 3vw, 38px); min-height: 210px;
-  display: flex; flex-direction: column; justify-content: space-between;
-  background: repeating-linear-gradient(135deg, rgba(74,51,35,.045) 0 8px, transparent 8px 16px);
-}
-.testi-placeholder { margin: 0; font-family: ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.7; color: rgba(74,51,35,.55); }
-.testi-pending { margin: 0; font-family: var(--serif); font-size: 17px; color: rgba(74,51,35,.4); }
-
 /* FAQ */
 .faq { padding: clamp(64px, 10vh, 120px) clamp(16px, 4vw, 56px); background: var(--bg-alt); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
 .faq h2 { font-size: clamp(30px, 3.6vw, 52px); line-height: 1.12; margin-bottom: clamp(32px, 4vh, 52px); }
