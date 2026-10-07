@@ -107,6 +107,19 @@
     ['Parabán Tucanes', 'paraban-tucanes', 1]
   ];
 
+  const piezas = [
+    ['Bandeja navideña Flor', 'pieza-bandeja-flor', 1],
+    ['Bandeja navideña Mamá', 'pieza-bandeja-mama', 1],
+    ['Bolívar', 'pieza-bolivar', 1],
+    ['Casco de vitral', 'pieza-casco', 2],
+    ['Copa decorada', 'pieza-copa', 2],
+    ['Cristo de vitral', 'pieza-cristo', 3],
+    ['Jarrón con ángel', 'pieza-jarron-angel', 1],
+    ['Mariposa', 'pieza-mariposa', 1],
+    ['Nacimiento', 'pieza-nacimiento', 2],
+    ['Sagrada Familia', 'pieza-sagrada-familia', 1]
+  ];
+
   const lamparas = [
     ['Farol de estrellas', 'farol-estrellas', 1],
     ['Lámpara Brasil', 'lampara-brasil', 4],
@@ -135,8 +148,9 @@
   const items = [
     ...vitrales.map(inCategory('Galería')),
     ...parabanes.map(inCategory('Parabanes')),
+    ...piezas.map(inCategory('Piezas Artísticas')),
+    single('Torres de vidrio', 'Piezas Artísticas', 'assets/piezas-artisticas.jpeg'),
     ...lamparas.map(inCategory('Lámparas')),
-    single('Piezas artísticas en vidrio', 'Piezas Artísticas', 'assets/piezas-artisticas.jpeg'),
     single('Banco de Venezuela, Valencia', 'Proyectos', 'assets/banco-venezuela.jpeg'),
     single('Vitral de círculos, hall', 'Proyectos', 'assets/circulos-frontal.jpeg', 'assets/circulos-angulo.jpeg'),
     single('Integración con el espacio', 'Proyectos', 'assets/lobby.jpeg'),
