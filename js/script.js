@@ -99,19 +99,28 @@
     ['Venados', 'venados', 5],
     ['Villa Olímpica', 'villa-olimpica', 5],
     ['Virgen de Loreto', 'virgen-de-loreto', 3]
-  ].map(([title, slug, count]) => ({
+  ];
+
+  const parabanes = [
+    ['Parabán Fondo Marino', 'paraban-fondo-marino', 1],
+    ['Parabán Nenúfares', 'paraban-nenufares', 1],
+    ['Parabán Tucanes', 'paraban-tucanes', 1]
+  ];
+
+  const inCategory = cat => ([title, slug, count]) => ({
     title,
-    cat: 'Galería',
+    cat,
     photos: Array.from({ length: count }, (_, i) => {
       const file = `${slug}-${String(i + 1).padStart(2, '0')}.jpg`;
       return { full: `img/galeria/${file}`, thumb: `img/galeria/thumbs/${file}` };
     })
-  }));
+  });
 
   const single = (title, cat, ...srcs) => ({ title, cat, photos: srcs.map(src => ({ full: src, thumb: src })) });
 
   const items = [
-    ...vitrales,
+    ...vitrales.map(inCategory('Galería')),
+    ...parabanes.map(inCategory('Parabanes')),
     single('Piezas artísticas en vidrio', 'Piezas Artísticas', 'assets/piezas-artisticas.jpeg'),
     single('Banco de Venezuela, Valencia', 'Proyectos', 'assets/banco-venezuela.jpeg'),
     single('Vitral de círculos, hall', 'Proyectos', 'assets/circulos-frontal.jpeg', 'assets/circulos-angulo.jpeg'),
