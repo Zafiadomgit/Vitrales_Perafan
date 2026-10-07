@@ -121,7 +121,8 @@
     single('Composición geométrica', 'Proyectos', 'assets/mondrian.jpeg'),
     single('Vitral mezzanina', 'Proyectos', 'assets/mezzanina.jpeg')
   ];
-  const categories = ['Galería', 'Piezas Artísticas', 'Exposiciones', 'Parabanes', 'Proyectos', 'Restauraciones', 'Lámparas'];
+  const categories = ['Galería', 'Piezas Artísticas', 'Exposiciones', 'Parabanes', 'Proyectos', 'Restauraciones', 'Lámparas']
+    .filter(c => items.some(it => it.cat === c));
 
   const filtersEl = document.getElementById('galeriaFilters');
   const gridEl = document.getElementById('galeriaGrid');
@@ -130,10 +131,6 @@
 
   function renderGallery() {
     filtered = items.filter(it => it.cat === activeCat);
-    if (!filtered.length) {
-      gridEl.innerHTML = '<p class="galeria-empty">Muy pronto compartiremos fotos de esta categoría.</p>';
-      return;
-    }
     gridEl.innerHTML = filtered.map((it, i) => `
       <button type="button" class="gallery-item" data-index="${i}" aria-label="Ver fotos: ${it.title}">
         <div class="gallery-img" style="background-image:url('${it.photos[0].thumb}')"></div>

@@ -264,10 +264,6 @@ section[id] { scroll-margin-top: 90px; }
   position: absolute; top: 12px; right: 12px; padding: 5px 10px; border-radius: 999px;
   background: rgba(9,8,7,.62); color: var(--paper); font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
 }
-.galeria-empty {
-  grid-column: 1 / -1; margin: 0; padding: clamp(40px, 8vh, 72px) 24px; text-align: center;
-  border: 1px dashed rgba(74,51,35,.28); font-family: var(--serif); font-size: 20px; color: rgba(74,51,35,.6);
-}
 
 /* Lightbox */
 .lightbox[hidden] { display: none; }
