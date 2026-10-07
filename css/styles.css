@@ -90,10 +90,11 @@ section[id] { scroll-margin-top: 90px; }
 .brand { display: flex; flex-direction: row; align-items: center; gap: 12px; color: var(--paper); }
 .brand-mark {
   display: flex; align-items: center; justify-content: center; flex: none;
-  width: 52px; height: 52px; border-radius: 50%;
+  width: 64px; height: 64px; border-radius: 50%; overflow: hidden;
   background: var(--paper); box-shadow: 0 2px 12px rgba(0,0,0,.35);
 }
-.brand-icon { height: 38px; width: auto; display: block; }
+/* The PNG has ~45% transparent margin around the bird; oversizing it and clipping to the circle crops that margin. */
+.brand-icon { height: 80px; width: auto; flex: none; display: block; }
 .brand-text { display: flex; flex-direction: column; gap: 2px; }
 .brand-name { font-family: var(--serif); font-size: 22px; letter-spacing: .14em; line-height: 1; }
 .brand-sub { font-family: var(--sans); font-size: 11px; letter-spacing: .42em; color: var(--gold-lighter); }
