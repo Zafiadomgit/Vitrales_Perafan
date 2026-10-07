@@ -66,36 +66,143 @@
   restartTimer();
 
   /* ---------- Galería ---------- */
+  const vitrales = [
+    ['Altagracia', 'altagracia', 1],
+    ['Alto Prado', 'alto-prado', 2],
+    ['Ángel Miguel', 'angel-miguel', 3],
+    ['Atilio', 'atilio', 6],
+    ['Barinas', 'barinas', 3],
+    ['Buque Escuela', 'buque-escuela', 1],
+    ['Calas de Hogar', 'calas-de-hogar', 3],
+    ['CANTV', 'cantv', 6],
+    ['Centro Médico', 'centro-medico', 2],
+    ['Charallave', 'charallave', 1],
+    ['Comandancia GNB', 'comandancia-gnb', 6],
+    ['Corazón de Jesús', 'corazon-de-jesus', 1],
+    ['Corazón de María', 'corazon-de-maria', 1],
+    ['El Ángel de San Diego', 'el-angel-de-san-diego', 3],
+    ['Galeón', 'galeon', 1],
+    ['Guadalupana', 'guadalupana', 1],
+    ['Guataparo', 'guataparo', 5],
+    ['La Campiña', 'la-campina', 1],
+    ['La Castellana', 'la-castellana', 2],
+    ['La Lagunita', 'la-lagunita', 2],
+    ['La Trinidad', 'la-trinidad', 1],
+    ['Laboratorio', 'laboratorio', 3],
+    ['Laboratorio de Captación Polar', 'lab-captacion-polar', 1],
+    ['Monocromático', 'monocromatico', 1],
+    ['Oripoto', 'oripoto', 4],
+    ['Pecera Marina', 'pecera-marina', 2],
+    ['Serpentinas al Aire', 'serpentinas-al-aire', 4],
+    ['Simetría Blanca', 'simetria-blanca', 1],
+    ['Simetría de Luz', 'simetria-de-luz', 4],
+    ['Venados', 'venados', 5],
+    ['Villa Olímpica', 'villa-olimpica', 5],
+    ['Virgen de Loreto', 'virgen-de-loreto', 3]
+  ].map(([title, slug, count]) => ({
+    title,
+    cat: 'Galería',
+    photos: Array.from({ length: count }, (_, i) => {
+      const file = `${slug}-${String(i + 1).padStart(2, '0')}.jpg`;
+      return { full: `img/galeria/${file}`, thumb: `img/galeria/thumbs/${file}` };
+    })
+  }));
+
+  const single = (title, cat, ...srcs) => ({ title, cat, photos: srcs.map(src => ({ full: src, thumb: src })) });
+
   const items = [
-    { src: 'assets/circulos-frontal.jpeg', title: 'Vitral de círculos, hall', cat: 'Proyectos' },
-    { src: 'assets/banco-venezuela.jpeg', title: 'Banco de Venezuela, Valencia', cat: 'Proyectos' },
-    { src: 'assets/religioso.jpeg', title: 'Vitral figurativo instalado', cat: 'Religiosos' },
-    { src: 'assets/taller.jpeg', title: 'Armado y emplomado en taller', cat: 'Religiosos' },
-    { src: 'assets/ondas.jpeg', title: 'Frontal IV, ventana abatible', cat: 'Residenciales' },
-    { src: 'assets/mondrian.jpeg', title: 'Composición geométrica', cat: 'Decorativos' },
-    { src: 'assets/mezzanina.jpeg', title: 'Vitral mezzanina', cat: 'Decorativos' },
-    { src: 'assets/circulos-angulo.jpeg', title: 'Vitral de círculos, vista lateral', cat: 'Proyectos' },
-    { src: 'assets/piezas-artisticas.jpeg', title: 'Piezas artísticas en vidrio', cat: 'Piezas artísticas' },
-    { src: 'assets/lobby.jpeg', title: 'Integración con el espacio', cat: 'Proyectos' }
+    ...vitrales,
+    single('Piezas artísticas en vidrio', 'Piezas Artísticas', 'assets/piezas-artisticas.jpeg'),
+    single('Banco de Venezuela, Valencia', 'Proyectos', 'assets/banco-venezuela.jpeg'),
+    single('Vitral de círculos, hall', 'Proyectos', 'assets/circulos-frontal.jpeg', 'assets/circulos-angulo.jpeg'),
+    single('Integración con el espacio', 'Proyectos', 'assets/lobby.jpeg'),
+    single('Vitral figurativo', 'Proyectos', 'assets/religioso.jpeg'),
+    single('Frontal IV, ventana abatible', 'Proyectos', 'assets/ondas.jpeg'),
+    single('Composición geométrica', 'Proyectos', 'assets/mondrian.jpeg'),
+    single('Vitral mezzanina', 'Proyectos', 'assets/mezzanina.jpeg')
   ];
-  const categories = ['Todos', 'Religiosos', 'Decorativos', 'Residenciales', 'Piezas artísticas', 'Proyectos'];
+  const categories = ['Galería', 'Piezas Artísticas', 'Exposiciones', 'Parabanes', 'Proyectos', 'Restauraciones', 'Lámparas'];
 
   const filtersEl = document.getElementById('galeriaFilters');
   const gridEl = document.getElementById('galeriaGrid');
-  let activeCat = 'Todos';
+  let activeCat = categories[0];
+  let filtered = [];
 
   function renderGallery() {
-    const filtered = items.filter(it => activeCat === 'Todos' || it.cat === activeCat);
-    gridEl.innerHTML = filtered.map(it => `
-      <figure class="gallery-item">
-        <div class="gallery-img" style="background-image:url('${it.src}')"></div>
-        <figcaption>
+    filtered = items.filter(it => it.cat === activeCat);
+    if (!filtered.length) {
+      gridEl.innerHTML = '<p class="galeria-empty">Muy pronto compartiremos fotos de esta categoría.</p>';
+      return;
+    }
+    gridEl.innerHTML = filtered.map((it, i) => `
+      <button type="button" class="gallery-item" data-index="${i}" aria-label="Ver fotos: ${it.title}">
+        <div class="gallery-img" style="background-image:url('${it.photos[0].thumb}')"></div>
+        ${it.photos.length > 1 ? `<span class="gallery-count">${it.photos.length} fotos</span>` : ''}
+        <div class="gallery-caption">
           <p class="gallery-title">${it.title}</p>
-          <p class="gallery-cat">${it.cat}</p>
-        </figcaption>
-      </figure>
+        </div>
+      </button>
     `).join('');
   }
+
+  gridEl.addEventListener('click', (e) => {
+    const card = e.target.closest('.gallery-item');
+    if (card) openLightbox(filtered[Number(card.dataset.index)]);
+  });
+
+  /* ---------- Lightbox ---------- */
+  const lightboxEl = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const lightboxClose = document.getElementById('lightboxClose');
+  let lbItem = null;
+  let lbIndex = 0;
+  let lbReturnFocus = null;
+
+  function showPhoto() {
+    const total = lbItem.photos.length;
+    lightboxImg.src = lbItem.photos[lbIndex].full;
+    lightboxImg.alt = `${lbItem.title} — foto ${lbIndex + 1} de ${total}`;
+    lightboxTitle.textContent = lbItem.title;
+    lightboxCounter.textContent = total > 1 ? `${lbIndex + 1} / ${total}` : '';
+    lightboxPrev.hidden = lightboxNext.hidden = total < 2;
+  }
+
+  function openLightbox(item) {
+    lbItem = item;
+    lbIndex = 0;
+    lbReturnFocus = document.activeElement;
+    showPhoto();
+    lightboxEl.hidden = false;
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    lightboxEl.hidden = true;
+    lightboxImg.removeAttribute('src');
+    document.body.style.overflow = '';
+    if (lbReturnFocus) lbReturnFocus.focus();
+  }
+
+  function step(delta) {
+    lbIndex = (lbIndex + delta + lbItem.photos.length) % lbItem.photos.length;
+    showPhoto();
+  }
+
+  lightboxPrev.addEventListener('click', () => step(-1));
+  lightboxNext.addEventListener('click', () => step(1));
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxEl.addEventListener('click', (e) => { if (e.target === lightboxEl) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (lightboxEl.hidden) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowLeft' && lbItem.photos.length > 1) step(-1);
+    else if (e.key === 'ArrowRight' && lbItem.photos.length > 1) step(1);
+  });
 
   function renderFilters() {
     filtersEl.innerHTML = categories.map(c =>

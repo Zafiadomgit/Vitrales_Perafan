@@ -16,7 +16,7 @@
 
 <header class="site-header">
   <a href="#inicio" class="brand">
-    <img src="img/toucan-icon.png" alt="" class="brand-icon">
+    <span class="brand-mark"><img src="img/toucan-icon.png" alt="" class="brand-icon"></span>
     <span class="brand-text">
       <span class="brand-name">VITRALES</span>
       <span class="brand-sub">PERAFÁN</span>
@@ -160,14 +160,24 @@
     <div class="galeria-head">
       <div>
         <p class="eyebrow">Galería</p>
-        <h2>Proyectos</h2>
+        <h2>Nuestras obras</h2>
       </div>
       <div class="filters" id="galeriaFilters"></div>
     </div>
     <div class="galeria-grid" id="galeriaGrid"></div>
-    <p class="galeria-note">Faltan categorías por llenar: lámparas y parabanes. Envíanos esas fotos y las sumamos a la galería.</p>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotos del vitral" hidden>
+  <button type="button" class="lightbox-btn lightbox-close" id="lightboxClose" aria-label="Cerrar">×</button>
+  <button type="button" class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">←</button>
+  <img class="lightbox-img" id="lightboxImg" alt="">
+  <div class="lightbox-info">
+    <p class="lightbox-title" id="lightboxTitle"></p>
+    <p class="lightbox-counter" id="lightboxCounter"></p>
+  </div>
+  <button type="button" class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Foto siguiente">→</button>
+</div>
 
 <section id="faq" class="faq">
   <div class="section-inner section-inner-narrow">
