@@ -107,6 +107,20 @@
     ['Parabán Tucanes', 'paraban-tucanes', 1]
   ];
 
+  const lamparas = [
+    ['Farol de estrellas', 'farol-estrellas', 1],
+    ['Lámpara Brasil', 'lampara-brasil', 4],
+    ['Lámpara Coca-Cola', 'lampara-coca-cola', 2],
+    ['Lámpara de escamas azules', 'lampara-escamas-azules', 2],
+    ['Lámpara de flores', 'lampara-flores', 2],
+    ['Lámpara de frutas', 'lampara-frutas', 2],
+    ['Lámpara de frutas ámbar', 'lampara-frutas-ambar', 2],
+    ['Lámpara de mesa blanca', 'lampara-mesa-blanca', 1],
+    ['Lámpara de mesa con base de hierro', 'lampara-mesa-hierro', 1],
+    ['Lámpara de rombos', 'lampara-rombos', 1],
+    ['Lámpara de uvas y tulipanes', 'lampara-uvas-tulipanes', 1]
+  ];
+
   const inCategory = cat => ([title, slug, count]) => ({
     title,
     cat,
@@ -121,6 +135,7 @@
   const items = [
     ...vitrales.map(inCategory('Galería')),
     ...parabanes.map(inCategory('Parabanes')),
+    ...lamparas.map(inCategory('Lámparas')),
     single('Piezas artísticas en vidrio', 'Piezas Artísticas', 'assets/piezas-artisticas.jpeg'),
     single('Banco de Venezuela, Valencia', 'Proyectos', 'assets/banco-venezuela.jpeg'),
     single('Vitral de círculos, hall', 'Proyectos', 'assets/circulos-frontal.jpeg', 'assets/circulos-angulo.jpeg'),
