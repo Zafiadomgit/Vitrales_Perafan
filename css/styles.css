@@ -106,6 +106,47 @@ section[id] { scroll-margin-top: 90px; }
 .site-nav a { color: rgba(244, 241, 234, .78); }
 .site-nav a:hover { color: var(--gold-lighter); }
 .nav-cta { padding: 10px 18px; border: 1px solid rgba(201, 154, 78, .6); color: var(--paper) !important; border-radius: 2px; }
+.nav-toggle { display: none; }
+
+@media (max-width: 860px) {
+  .site-header, .site-header.scrolled {
+    padding: 12px 16px;
+    background: #0a0908;
+    box-shadow: 0 1px 0 rgba(201, 154, 78, .15);
+  }
+  .brand { gap: 10px; }
+  .brand-mark { width: 48px; height: 48px; }
+  .brand-icon { height: 60px; }
+  .brand-name { font-size: 19px; }
+  .brand-sub { font-size: 10px; }
+
+  .nav-toggle {
+    display: flex; align-items: center; justify-content: center; flex: none;
+    width: 44px; height: 44px; padding: 0; cursor: pointer; border-radius: 2px;
+    border: 1px solid rgba(201, 154, 78, .5); background: transparent;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
+    display: block; width: 20px; height: 2px; background: var(--paper);
+    transition: transform .2s ease, background .2s ease;
+  }
+  .nav-toggle span { position: relative; }
+  .nav-toggle span::before, .nav-toggle span::after { content: ''; position: absolute; left: 0; }
+  .nav-toggle span::before { top: -6px; }
+  .nav-toggle span::after { top: 6px; }
+  .menu-open .nav-toggle span { background: transparent; }
+  .menu-open .nav-toggle span::before { transform: translateY(6px) rotate(45deg); }
+  .menu-open .nav-toggle span::after { transform: translateY(-6px) rotate(-45deg); }
+
+  .site-nav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    display: none; flex-direction: column; align-items: stretch; gap: 0;
+    padding: 4px 16px 20px; font-size: 14px;
+    background: #0a0908; box-shadow: 0 12px 24px rgba(0,0,0,.35);
+  }
+  .menu-open .site-nav { display: flex; }
+  .site-nav a { padding: 15px 0; border-bottom: 1px solid rgba(244, 241, 234, .08); }
+  .site-nav .nav-cta { margin-top: 16px; padding: 14px; text-align: center; border-bottom: 1px solid rgba(201, 154, 78, .6); }
+}
 
 /* Hero */
 .hero {

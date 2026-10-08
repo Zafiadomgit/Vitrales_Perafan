@@ -9,6 +9,24 @@
   window.addEventListener('scroll', updateHeaderScrolled, { passive: true });
   updateHeaderScrolled();
 
+  /* ---------- Mobile menu ---------- */
+  const navToggle = document.getElementById('navToggle');
+  function setMenuOpen(open) {
+    header.classList.toggle('menu-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  }
+  navToggle.addEventListener('click', () => setMenuOpen(!header.classList.contains('menu-open')));
+  document.getElementById('siteNav').addEventListener('click', (e) => {
+    if (e.target.closest('a')) setMenuOpen(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && header.classList.contains('menu-open')) {
+      setMenuOpen(false);
+      navToggle.focus();
+    }
+  });
+
   /* ---------- Hero carousel ---------- */
   const slides = [
     { title: 'Vitral decorativo, hall de acceso', meta: 'Emplomado · Proyecto corporativo' },
