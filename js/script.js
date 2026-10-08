@@ -71,7 +71,7 @@
     ['Alto Prado', 'alto-prado', 2],
     ['Ángel Miguel', 'angel-miguel', 3],
     ['Atilio', 'atilio', 6],
-    ['Barinas', 'barinas', 3],
+    ['Barinas', 'barinas', 2],
     ['Buque Escuela', 'buque-escuela', 1],
     ['Calas de Hogar', 'calas-de-hogar', 3],
     ['CANTV', 'cantv', 6],
