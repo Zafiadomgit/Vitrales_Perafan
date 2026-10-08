@@ -93,6 +93,7 @@
     ['Monocromático', 'monocromatico', 1],
     ['Oripoto', 'oripoto', 4],
     ['Pecera Marina', 'pecera-marina', 2],
+    ['Retrato', 'retrato', 2],
     ['Serpentinas al Aire', 'serpentinas-al-aire', 4],
     ['Simetría Blanca', 'simetria-blanca', 1],
     ['Simetría de Luz', 'simetria-de-luz', 4],
