@@ -108,7 +108,7 @@ section[id] { scroll-margin-top: 90px; }
 .nav-cta { padding: 10px 18px; border: 1px solid rgba(201, 154, 78, .6); color: var(--paper) !important; border-radius: 2px; }
 .nav-toggle { display: none; }
 
-@media (max-width: 860px) {
+@media (max-width: 980px) {
   .site-header, .site-header.scrolled {
     padding: 12px 16px;
     background: #0a0908;
@@ -331,6 +331,23 @@ section[id] { scroll-margin-top: 90px; }
 @media (max-width: 720px) {
   .lightbox { padding: 64px 12px 20px; }
   .lightbox-prev, .lightbox-next { top: auto; bottom: 16px; transform: none; }
+}
+
+/* Exposiciones */
+.exposiciones { padding: clamp(64px, 10vh, 120px) clamp(16px, 4vw, 56px); }
+.exposiciones h2 { font-size: clamp(30px, 3.6vw, 52px); line-height: 1.12; margin-bottom: clamp(32px, 5vh, 52px); }
+.expo-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--hairline); }
+.expo-item {
+  display: grid; grid-template-columns: minmax(120px, 180px) 1fr; gap: clamp(16px, 3vw, 44px);
+  padding: clamp(22px, 3vh, 32px) 0; border-bottom: 1px solid var(--hairline);
+}
+.expo-date { margin: 4px 0 0; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.expo-item h3 { font-weight: 400; font-size: clamp(20px, 2vw, 26px); line-height: 1.25; margin: 0 0 8px; }
+.expo-place { margin: 0 0 10px; font-size: 13px; letter-spacing: .06em; color: var(--ink-faint); }
+.expo-item p:last-child { margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink-soft); max-width: 70ch; }
+.expo-subtitle { margin: clamp(40px, 6vh, 64px) 0 18px; font-family: var(--serif); font-size: clamp(22px, 2.4vw, 30px); }
+@media (max-width: 720px) {
+  .expo-item { grid-template-columns: 1fr; gap: 8px; }
 }
 
 /* FAQ */

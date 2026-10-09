@@ -186,22 +186,42 @@
   let activeCat = categories[0];
   let filtered = [];
 
+  const cardHTML = (it, i) => `
+    <button type="button" class="gallery-item" data-index="${i}" aria-label="Ver fotos: ${it.title}">
+      <div class="gallery-img" style="background-image:url('${it.photos[0].thumb}')"></div>
+      ${it.photos.length > 1 ? `<span class="gallery-count">${it.photos.length} fotos</span>` : ''}
+      <div class="gallery-caption">
+        <p class="gallery-title">${it.title}</p>
+      </div>
+    </button>
+  `;
+
   function renderGallery() {
     filtered = items.filter(it => it.cat === activeCat);
-    gridEl.innerHTML = filtered.map((it, i) => `
-      <button type="button" class="gallery-item" data-index="${i}" aria-label="Ver fotos: ${it.title}">
-        <div class="gallery-img" style="background-image:url('${it.photos[0].thumb}')"></div>
-        ${it.photos.length > 1 ? `<span class="gallery-count">${it.photos.length} fotos</span>` : ''}
-        <div class="gallery-caption">
-          <p class="gallery-title">${it.title}</p>
-        </div>
-      </button>
-    `).join('');
+    gridEl.innerHTML = filtered.map(cardHTML).join('');
   }
 
   gridEl.addEventListener('click', (e) => {
     const card = e.target.closest('.gallery-item');
     if (card) openLightbox(filtered[Number(card.dataset.index)]);
+  });
+
+  /* ---------- Exposiciones ---------- */
+  const fromGaleria = file => ({ full: `img/galeria/${file}`, thumb: `img/galeria/thumbs/${file}` });
+  const expoItems = [
+    ['Certificado Fusiones Lumínicas', 'expo-certificado-fusiones-01.jpg'],
+    ['Certificado de autenticidad', 'expo-certificado-autenticidad-01.jpg'],
+    ['Lámparas Brasil en exposición', 'lampara-brasil-04.jpg'],
+    ['Lámpara Coca-Cola', 'lampara-coca-cola-02.jpg'],
+    ['Vitral Corazón de Jesús', 'corazon-de-jesus-01.jpg'],
+    ['Lámpara Mundo Lunar', 'expo-mundo-lunar-01.jpg']
+  ].map(([title, file]) => ({ title, photos: [fromGaleria(file)] }));
+
+  const expoGridEl = document.getElementById('expoGrid');
+  expoGridEl.innerHTML = expoItems.map(cardHTML).join('');
+  expoGridEl.addEventListener('click', (e) => {
+    const card = e.target.closest('.gallery-item');
+    if (card) openLightbox(expoItems[Number(card.dataset.index)]);
   });
 
   /* ---------- Lightbox ---------- */
