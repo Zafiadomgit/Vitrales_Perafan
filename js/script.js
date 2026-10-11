@@ -29,11 +29,11 @@
 
   /* ---------- Hero carousel ---------- */
   const slides = [
-    { title: 'Vitral decorativo, hall de acceso', meta: 'Emplomado · Proyecto corporativo' },
-    { title: 'Vitral Banco de Venezuela', meta: 'Valencia, Edo. Carabobo' },
-    { title: 'Vitral religioso instalado', meta: 'Figurativo · Centro religioso' },
-    { title: 'Vitral Frontal IV', meta: 'Abstracto · Residencial' },
-    { title: 'Montaje en taller', meta: 'Emplomado pieza por pieza' }
+    { title: 'Cristo, Camino, Verdad y Vida', meta: 'Proyecto · Diseño digital' },
+    { title: 'Virgen con el Niño', meta: 'Proyecto · Diseño digital' },
+    { title: 'San Pablo', meta: 'Proyecto · Diseño digital' },
+    { title: 'Industria y energía', meta: 'Proyecto · Diseño a mano' },
+    { title: 'Historia y justicia', meta: 'Proyecto · Diseño a mano' }
   ];
   const CAROUSEL_INTERVAL = 6000;
 
@@ -153,6 +153,14 @@
     ['Lámpara de uvas y tulipanes', 'lampara-uvas-tulipanes', 1]
   ];
 
+  const proyectos = [
+    ['Cristo, Camino, Verdad y Vida', 'proyecto-cristo', 1],
+    ['Virgen con el Niño', 'proyecto-virgen-nino', 1],
+    ['San Pablo', 'proyecto-san-pablo', 1],
+    ['Industria y energía', 'proyecto-industria', 1],
+    ['Historia y justicia', 'proyecto-historia', 1]
+  ];
+
   const inCategory = cat => ([title, slug, count]) => ({
     title,
     cat,
@@ -170,15 +178,16 @@
     ...piezas.map(inCategory('Piezas Artísticas')),
     single('Torres de vidrio', 'Piezas Artísticas', 'assets/piezas-artisticas.jpeg'),
     ...lamparas.map(inCategory('Lámparas')),
-    single('Banco de Venezuela, Valencia', 'Proyectos', 'assets/banco-venezuela.jpeg'),
-    single('Vitral de círculos, hall', 'Proyectos', 'assets/circulos-frontal.jpeg', 'assets/circulos-angulo.jpeg'),
-    single('Integración con el espacio', 'Proyectos', 'assets/lobby.jpeg'),
-    single('Vitral figurativo', 'Proyectos', 'assets/religioso.jpeg'),
-    single('Frontal IV, ventana abatible', 'Proyectos', 'assets/ondas.jpeg'),
-    single('Composición geométrica', 'Proyectos', 'assets/mondrian.jpeg'),
-    single('Vitral mezzanina', 'Proyectos', 'assets/mezzanina.jpeg')
+    ...proyectos.map(inCategory('Proyectos')),
+    single('Banco de Venezuela, Valencia', 'Obras instaladas', 'assets/banco-venezuela.jpeg'),
+    single('Vitral de círculos, hall', 'Obras instaladas', 'assets/circulos-frontal.jpeg', 'assets/circulos-angulo.jpeg'),
+    single('Integración con el espacio', 'Obras instaladas', 'assets/lobby.jpeg'),
+    single('Vitral figurativo', 'Obras instaladas', 'assets/religioso.jpeg'),
+    single('Frontal IV, ventana abatible', 'Obras instaladas', 'assets/ondas.jpeg'),
+    single('Composición geométrica', 'Obras instaladas', 'assets/mondrian.jpeg'),
+    single('Vitral mezzanina', 'Obras instaladas', 'assets/mezzanina.jpeg')
   ];
-  const categories = ['Galería', 'Piezas Artísticas', 'Exposiciones', 'Parabanes', 'Proyectos', 'Restauraciones', 'Lámparas']
+  const categories = ['Galería', 'Piezas Artísticas', 'Exposiciones', 'Parabanes', 'Proyectos', 'Obras instaladas', 'Restauraciones', 'Lámparas']
     .filter(c => items.some(it => it.cat === c));
 
   const filtersEl = document.getElementById('galeriaFilters');

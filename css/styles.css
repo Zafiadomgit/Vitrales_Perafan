@@ -163,7 +163,11 @@ section[id] { scroll-margin-top: 90px; }
   opacity: 0; transform: scale(1);
   transition: opacity 1500ms cubic-bezier(.4,0,.2,1), transform 7000ms linear;
 }
-.hero-slide-religioso { background-position: center 30%; }
+.hero-slide-figura { background-position: center 20%; }
+.hero-slide-vertical { background-size: contain; background-position: right 8% center; background-repeat: no-repeat; background-color: #0e0c0b; }
+@media (max-width: 720px) {
+  .hero-slide-vertical { background-size: cover; background-position: center top; }
+}
 .hero-slide.active { opacity: 1; transform: scale(1.09); }
 .hero-scrim {
   position: absolute; inset: 0;
