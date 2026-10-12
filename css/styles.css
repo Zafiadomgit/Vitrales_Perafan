@@ -402,6 +402,11 @@ section[id] { scroll-margin-top: 90px; }
 .contacto-form input:focus, .contacto-form select:focus, .contacto-form textarea:focus { border-color: var(--gold); }
 .btn-submit { margin-top: 6px; border: 0; }
 .form-note { margin: 0; font-size: 13px; line-height: 1.6; color: rgba(74,51,35,.55); }
+.form-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.btn-submit:disabled { opacity: .6; cursor: wait; }
+.form-status { margin: 0; padding: 12px 14px; font-size: 14px; line-height: 1.5; border-left: 3px solid var(--gold); background: rgba(138,90,47,.08); }
+.form-status.is-error { border-left-color: #a33a2a; background: rgba(163,58,42,.08); }
+.form-status a { text-decoration: underline; }
 
 /* Footer */
 .site-footer { border-top: 1px solid var(--hairline); padding: clamp(40px, 6vh, 64px) clamp(16px, 4vw, 56px); }

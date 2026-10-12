@@ -338,27 +338,51 @@
   });
 
   /* ---------- Formulario de contacto ---------- */
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/vitralesperafan@yahoo.com';
   const form = document.getElementById('cotizarForm');
-  form.addEventListener('submit', (e) => {
+  const submitBtn = form.querySelector('.btn-submit');
+  const statusEl = document.getElementById('formStatus');
+
+  function showStatus(message, isError) {
+    statusEl.hidden = false;
+    statusEl.classList.toggle('is-error', isError);
+    statusEl.innerHTML = message;
+  }
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
-    const nombre = (data.get('nombre') || '').toString().trim();
-    const contacto = (data.get('contacto') || '').toString().trim();
-    const tipo = (data.get('tipo') || '').toString().trim();
-    const ubicacion = (data.get('ubicacion') || '').toString().trim();
-    const idea = (data.get('idea') || '').toString().trim();
+    const field = name => (data.get(name) || '').toString().trim();
+    const nombre = field('nombre');
 
-    const body = [
-      `Nombre: ${nombre}`,
-      `Correo / WhatsApp: ${contacto}`,
-      `Tipo de proyecto: ${tipo}`,
-      `Ubicación y dimensiones: ${ubicacion || '—'}`,
-      '',
-      'Idea del proyecto:',
-      idea || '—'
-    ].join('\n');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando…';
+    statusEl.hidden = true;
 
-    const mailto = `mailto:vitralesperafan@yahoo.com?subject=${encodeURIComponent('Solicitud de cotización — ' + nombre)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          'Nombre': nombre,
+          'Correo / WhatsApp': field('contacto'),
+          'Tipo de proyecto': field('tipo'),
+          'Ubicación y dimensiones': field('ubicacion') || '—',
+          'Idea del proyecto': field('idea') || '—',
+          _subject: `Solicitud de cotización — ${nombre}`,
+          _template: 'table',
+          _honey: field('_honey')
+        })
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || String(result.success) !== 'true') throw new Error(result.message || res.status);
+      form.reset();
+      showStatus('¡Gracias! Recibimos tu solicitud y te responderemos pronto.', false);
+    } catch (err) {
+      showStatus('No pudimos enviar tu solicitud. Inténtalo de nuevo o escríbenos por <a href="https://wa.me/584141367355" target="_blank" rel="noopener">WhatsApp</a>.', true);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar solicitud';
+    }
   });
 })();
