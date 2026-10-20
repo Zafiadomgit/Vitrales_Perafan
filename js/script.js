@@ -190,7 +190,22 @@
   const categories = ['Galería', 'Piezas Artísticas', 'Exposiciones', 'Parabanes', 'Proyectos', 'Obras instaladas', 'Restauraciones', 'Lámparas']
     .filter(c => items.some(it => it.cat === c));
 
-  const filtersEl = document.getElementById('galeriaFilters');
+  const covers = {
+    'Galería': { label: 'Vitrales', img: 'img/galeria/thumbs/barinas-01.jpg' },
+    'Piezas Artísticas': { label: 'Piezas Artísticas', img: 'img/galeria/thumbs/pieza-casco-01.jpg' },
+    'Exposiciones': { label: 'Exposiciones', img: '' },
+    'Parabanes': { label: 'Parabanes', img: 'img/galeria/thumbs/paraban-fondo-marino-01.jpg' },
+    'Proyectos': { label: 'Proyectos', img: 'img/galeria/thumbs/proyecto-cristo-01.jpg' },
+    'Obras instaladas': { label: 'Obras instaladas', img: 'assets/circulos-frontal.jpeg' },
+    'Restauraciones': { label: 'Restauraciones', img: '' },
+    'Lámparas': { label: 'Lámparas', img: 'img/galeria/thumbs/lampara-brasil-01.jpg' }
+  };
+
+  const coversEl = document.getElementById('galeriaCovers');
+  const detailEl = document.getElementById('galeriaDetail');
+  const detailTitleEl = document.getElementById('galeriaDetailTitle');
+  const backBtn = document.getElementById('galeriaBack');
+  const galeriaSection = document.getElementById('galeria');
   const gridEl = document.getElementById('galeriaGrid');
   let activeCat = categories[0];
   let filtered = [];
@@ -287,21 +302,40 @@
     else if (e.key === 'ArrowRight' && lbItem.photos.length > 1) step(1);
   });
 
-  function renderFilters() {
-    filtersEl.innerHTML = categories.map(c =>
-      `<button type="button" class="filter${c === activeCat ? ' active' : ''}" data-cat="${c}">${c}</button>`
-    ).join('');
-    filtersEl.querySelectorAll('.filter').forEach(btn => {
-      btn.addEventListener('click', () => {
-        activeCat = btn.dataset.cat;
-        renderFilters();
-        renderGallery();
-      });
-    });
+  coversEl.innerHTML = categories.map(c => {
+    const n = items.filter(it => it.cat === c).length;
+    return `
+      <button type="button" class="galeria-cover" data-cat="${c}">
+        <span class="galeria-cover-img" style="background-image:url('${covers[c].img}')"></span>
+        <span class="galeria-cover-text">
+          <span class="galeria-cover-name">${covers[c].label}</span>
+          <span class="galeria-cover-count">${n} ${n === 1 ? 'obra' : 'obras'}</span>
+        </span>
+      </button>`;
+  }).join('');
+
+  function showCategory(cat) {
+    activeCat = cat;
+    renderGallery();
+    detailTitleEl.textContent = covers[cat].label;
+    coversEl.hidden = true;
+    detailEl.hidden = false;
+    galeriaSection.scrollIntoView({ block: 'start' });
+    backBtn.focus({ preventScroll: true });
   }
 
-  renderFilters();
-  renderGallery();
+  function showCovers() {
+    detailEl.hidden = true;
+    coversEl.hidden = false;
+    galeriaSection.scrollIntoView({ block: 'start' });
+    coversEl.querySelector(`[data-cat="${activeCat}"]`).focus({ preventScroll: true });
+  }
+
+  coversEl.addEventListener('click', (e) => {
+    const cover = e.target.closest('.galeria-cover');
+    if (cover) showCategory(cover.dataset.cat);
+  });
+  backBtn.addEventListener('click', showCovers);
 
   /* ---------- FAQ ---------- */
   const faqData = [
