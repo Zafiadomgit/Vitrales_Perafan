@@ -372,7 +372,7 @@
   });
 
   /* ---------- Formulario de contacto ---------- */
-  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/vitralesperafan@yahoo.com';
+  const FORM_ENDPOINT = '/api/cotizar';
   const form = document.getElementById('cotizarForm');
   const submitBtn = form.querySelector('.btn-submit');
   const statusEl = document.getElementById('formStatus');
@@ -398,18 +398,16 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          'Nombre': nombre,
-          'Correo / WhatsApp': field('contacto'),
-          'Tipo de proyecto': field('tipo'),
-          'Ubicación y dimensiones': field('ubicacion') || '—',
-          'Idea del proyecto': field('idea') || '—',
-          _subject: `Solicitud de cotización — ${nombre}`,
-          _template: 'table',
+          nombre,
+          contacto: field('contacto'),
+          tipo: field('tipo'),
+          ubicacion: field('ubicacion'),
+          idea: field('idea'),
           _honey: field('_honey')
         })
       });
       const result = await res.json().catch(() => ({}));
-      if (!res.ok || String(result.success) !== 'true') throw new Error(result.message || res.status);
+      if (!res.ok || !result.ok) throw new Error(result.error || res.status);
       form.reset();
       showStatus('¡Gracias! Recibimos tu solicitud y te responderemos pronto.', false);
     } catch (err) {
