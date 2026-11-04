@@ -161,6 +161,12 @@
     ['Historia y justicia', 'proyecto-historia', 1]
   ];
 
+  const taller = [
+    ['Patrón de flores y corte de piezas', 'taller-patron', 1],
+    ['Ensamblaje del vitral del ángel', 'taller-angel', 1],
+    ['Corte de vidrio sobre patrón', 'taller-corte', 1]
+  ];
+
   const inCategory = cat => ([title, slug, count]) => ({
     title,
     cat,
@@ -179,6 +185,7 @@
     single('Torres de vidrio', 'Piezas Artísticas', 'assets/piezas-artisticas.jpeg'),
     ...lamparas.map(inCategory('Lámparas')),
     ...proyectos.map(inCategory('Proyectos')),
+    ...taller.map(inCategory('En el taller')),
     single('Banco de Venezuela, Valencia', 'Obras instaladas', 'assets/banco-venezuela.jpeg'),
     single('Vitral de círculos, hall', 'Obras instaladas', 'assets/circulos-frontal.jpeg', 'assets/circulos-angulo.jpeg'),
     single('Integración con el espacio', 'Obras instaladas', 'assets/lobby.jpeg'),
@@ -187,7 +194,7 @@
     single('Composición geométrica', 'Obras instaladas', 'assets/mondrian.jpeg'),
     single('Vitral mezzanina', 'Obras instaladas', 'assets/mezzanina.jpeg')
   ];
-  const categories = ['Galería', 'Piezas Artísticas', 'Exposiciones', 'Parabanes', 'Proyectos', 'Obras instaladas', 'Restauraciones', 'Lámparas']
+  const categories = ['Galería', 'Piezas Artísticas', 'Exposiciones', 'Parabanes', 'Proyectos', 'Obras instaladas', 'Restauraciones', 'Lámparas', 'En el taller']
     .filter(c => items.some(it => it.cat === c));
 
   const covers = {
@@ -198,7 +205,8 @@
     'Proyectos': { label: 'Proyectos', img: 'img/galeria/thumbs/proyecto-cristo-01.jpg' },
     'Obras instaladas': { label: 'Obras instaladas', img: 'assets/circulos-frontal.jpeg' },
     'Restauraciones': { label: 'Restauraciones', img: '' },
-    'Lámparas': { label: 'Lámparas', img: 'img/galeria/thumbs/lampara-brasil-01.jpg' }
+    'Lámparas': { label: 'Lámparas', img: 'img/galeria/thumbs/lampara-brasil-01.jpg' },
+    'En el taller': { label: 'En el taller', img: 'img/galeria/thumbs/taller-angel-01.jpg' }
   };
 
   const coversEl = document.getElementById('galeriaCovers');
